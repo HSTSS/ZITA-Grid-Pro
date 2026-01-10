@@ -1,158 +1,98 @@
-/* ==============================
-   1️⃣ Corpo da página
-================================= */
+/* Estilo base */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #121212;
-  color: #ffffff;
-  margin: 0;
-  padding: 20px;
+    margin: 0;
+    padding: 0;
+    background: #0c0f17;
+    color: white;
+    font-family: 'Inter', sans-serif;
 }
 
-/* ==============================
-   2️⃣ Cabeçalho / Carteira
-================================= */
-#walletHeader {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: #141823;
+    border-bottom: 1px solid #2b303d;
 }
 
-#walletHeader button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  background-color: #FFD700;
-  color: #121212;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
+/* Botões */
+button {
+    cursor: pointer;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-weight: 600;
 }
 
-#walletHeader button:hover {
-  background-color: #e6c200;
+.primary {
+    background: #2688ff;
+    color: white;
 }
 
-#walletAddress {
-  font-size: 0.9em;
-  font-weight: bold;
+.danger {
+    background: #ff3b3b;
+    color: white;
 }
 
-/* ==============================
-   3️⃣ Terminal Swap
-================================= */
-#swapTerminal {
-  background-color: #1e1e1e;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 400px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+/* Terminal */
+.terminal-container {
+    padding: 20px;
 }
 
-#swapTerminal h2 {
-  margin-top: 0;
-  color: #FFD700;
+.terminal {
+    margin-top: 10px;
+    padding: 15px;
+    background: #1a1f2e;
+    border: 1px solid #2b303d;
+    border-radius: 8px;
+    line-height: 1.7;
 }
 
-#swapTerminal label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
+/* Swap box */
+.swap-box {
+    padding: 20px;
+    margin: 15px;
+    background: #1a1f2e;
+    border-radius: 8px;
+    border: 1px solid #2b303d;
 }
 
-#swapTerminal select,
-#swapTerminal input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 4px;
-  border-radius: 6px;
-  border: 1px solid #555;
-  background-color: #2c2c2c;
-  color: #fff;
+.swap-box input, .swap-box select {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0 15px;
+    border-radius: 5px;
+    border: none;
 }
 
-#swapTerminal p {
-  margin: 4px 0 10px 0;
-  font-weight: bold;
-}
-
-#swapTerminal button {
-  margin-top: 10px;
-  padding: 10px;
-  width: 100%;
-  border: none;
-  border-radius: 8px;
-  background-color: #FFD700;
-  color: #121212;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-#swapTerminal button:hover {
-  background-color: #e6c200;
-}
-
-/* ==============================
-   4️⃣ Seção Avançada
-================================= */
-.swap-advanced {
-  margin-top: 15px;
-}
-
-#toggleAdvancedBtn {
-  width: 100%;
-  background-color: #444;
-  color: #fff;
-  font-weight: bold;
+/* Avançado */
+.swap-advanced button {
+    margin-top: 10px;
+    background: #2b303d;
+    color: white;
 }
 
 #advancedOptions {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #2c2c2c;
-  border-radius: 6px;
+    margin-top: 10px;
+    padding: 10px;
+    background: #141823;
+    border-radius: 6px;
 }
 
-#advancedOptions input {
-  width: 100%;
-  padding: 6px;
-  border-radius: 6px;
-  border: 1px solid #555;
-  background-color: #1f1f1f;
-  color: #fff;
+.logs {
+    padding: 20px;
 }
 
-/* ==============================
-   5️⃣ Logs
-================================= */
-#logs {
-  max-width: 400px;
-  height: 150px;
-  background-color: #1e1e1e;
-  border: 1px solid #555;
-  border-radius: 10px;
-  padding: 10px;
-  overflow-y: auto;
-  font-size: 0.85em;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+#logBox {
+    background: #0e111a;
+    padding: 10px;
+    height: 200px;
+    overflow-y: auto;
+    border-radius: 8px;
+    border: 1px solid #2b303d;
 }
 
-/* ==============================
-   6️⃣ Widget Jupiter
-================================= */
-#jupiterWidget {
-  margin-top: 20px;
-  max-width: 400px;
-}
-
-/* ==============================
-   7️⃣ Responsividade
-================================= */
-@media (max-width: 500px) {
-  #swapTerminal, #logs, #jupiterWidget {
-    max-width: 100%;
-  }
-}
+.hidden {
+    display: none;
+   }
