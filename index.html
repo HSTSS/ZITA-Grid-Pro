@@ -1,85 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
-  <meta charset="UTF-8">
-  <title>ZITA Swap Pro</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZITA Grid Pro</title>
+
+    <!-- Carrega o CSS da pasta public/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Fonte Google (opcional para melhor visual) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-  <!-- ==============================
-       1️⃣ Cabeçalho / Carteira
-  ================================= -->
-  <div id="walletHeader">
-    <button id="connectWalletBtn">Conectar Solflare</button>
-    <button id="disconnectWalletBtn">Desconectar</button>
-    <span id="walletAddress">Carteira não conectada</span>
-  </div>
+    <!-- Cabeçalho com título -->
+    <header>
+        <h1>ZITA GRID PRO</h1>
+        <button id="connectWalletBtn">🔌 Conectar Carteira</button>
+    </header>
 
-  <!-- ==============================
-       2️⃣ Terminal Swap
-  ================================= -->
-  <div id="swapTerminal">
-    <h2>Swap Pro</h2>
+    <!-- Saldo da carteira -->
+    <section id="walletInfo" class="hidden">
+        <p><strong>Carteira:</strong> <span id="walletAddress">--</span></p>
+        <p><strong>SALDOS:</strong></p>
+        <ul>
+            <li>SOL: <span id="balSOL">0</span></li>
+            <li>USDC: <span id="balUSDC">0</span></li>
+            <li>ZITA: <span id="balZITA">0</span></li>
+        </ul>
+        <button id="disconnectWalletBtn" class="danger">Desconectar</button>
+    </section>
 
-    <!-- Escolha de tokens -->
-    <label>Vender Token:</label>
-    <select id="sellToken">
-      <option value="SOL">SOL</option>
-      <option value="USDC">USDC</option>
-      <option value="ZITA">ZITA</option>
-    </select>
+    <!-- Terminal dos 3 pares -->
+    <section class="terminal-container">
+        <h2>Terminal de Preços (Realtime)</h2>
 
-    <label>Comprar Token:</label>
-    <select id="buyToken">
-      <option value="SOL">SOL</option>
-      <option value="USDC">USDC</option>
-      <option value="ZITA">ZITA</option>
-    </select>
+        <div class="terminal">
+            <p>SOL → USDC: <span id="price_sol_usdc">--</span></p>
+            <p>ZITA → USDC: <span id="price_zita_usdc">--</span></p>
+            <p>SOL → ZITA: <span id="price_sol_zita">--</span></p>
+        </div>
+    </section>
 
-    <button id="invertBtn">🔄 Inverter</button>
+    <!-- Caixa de swap -->
+    <section class="swap-box">
+        <h2>Swap</h2>
 
-    <label>Quantidade:</label>
-    <input type="number" id="amount" placeholder="Ex: 1" step="0.0001">
+        <label>Vender:</label>
+        <select id="sellToken">
+            <option>SOL</option>
+            <option>USDC</option>
+            <option>ZITA</option>
+        </select>
 
-    <label>Preço Atual:</label>
-    <p id="price">—</p>
+        <label>Comprar:</label>
+        <select id="buyToken">
+            <option>USDC</option>
+            <option>ZITA</option>
+            <option>SOL</option>
+        </select>
 
-    <label>Receber mínimo:</label>
-    <p id="minReceive">—</p>
+        <label>Quantidade:</label>
+        <input type="number" id="sellAmount" placeholder="0.00">
 
-    <!-- Botão Swap -->
-    <button id="swapBtn">SWAP</button>
+        <button id="swapBtn" class="primary">EXECUTAR SWAP</button>
 
-    <!-- Seção avançada -->
-    <div class="swap-advanced">
-      <button id="toggleAdvancedBtn">⚙️ Avançado</button>
-      <div id="advancedOptions" style="display:none;">
-        <label>Slippage (%)</label>
-        <input type="number" id="slippage" value="0.3" step="0.1">
+        <!-- Menu avançado -->
+        <div class="swap-advanced">
+            <button id="toggleAdvancedBtn">⚙️ Avançado</button>
+            <div id="advancedOptions" class="hidden">
+                <label>Slippage (%)</label>
+                <input type="number" id="slippage" value="0.3" step="0.1">
 
-        <label>Jito Gas (SOL)</label>
-        <input type="number" id="jitoGas" value="0.000005" step="0.000001">
-      </div>
-    </div>
-  </div>
+                <label>Jito Gas (SOL)</label>
+                <input type="number" id="jitoGas" value="0.000005" step="0.000001">
+            </div>
+        </div>
+    </section>
 
-  <!-- ==============================
-       3️⃣ Logs
-  ================================= -->
-  <div id="logs"></div>
+    <!-- Logs -->
+    <section class="logs">
+        <h2>LOGS</h2>
+        <div id="logBox"></div>
+    </section>
 
-  <!-- ==============================
-       4️⃣ Widget Jupiter
-       Aqui será integrado o plugin para preços reais e swap
-  ================================= -->
-  <div id="jupiterWidget"></div>
-
-  <!-- ==============================
-       5️⃣ Scripts
-  ================================= -->
-  <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.73.0/lib/index.iife.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@jup-ag/jupiter-plugin@latest/dist/plugin.iife.js"></script>
-  <script src="app.js" type="module"></script>
+    <!-- Carrega o JS -->
+    <script src="/app.js" type="module"></script>
 </body>
 </html>
